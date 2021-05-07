@@ -1,5 +1,8 @@
+import { Router, Routes } from '@angular/router';
+import { UserService } from './../../shared/services/user.service';
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from 'src/app/shared/models/user.model';
 
 @Component({
   selector: 'app-register',
@@ -10,8 +13,12 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   limitAge = new Array(100);
 
-  maxDate: Date = new Date();
-  constructor(private formBuilder: FormBuilder) {}
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private router : Router
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -39,10 +46,18 @@ export class RegisterComponent implements OnInit {
   }
 
   submitForm() {
+    
     if (!this.registerForm.valid) {
       return;
     }
     console.log(this.registerForm.value);
-    this.registerForm.reset();
+
+    this.userService.createUser(this.registerForm.value).subscribe((user:User) =>{
+      console.log(user);
+      
+      this.registerForm.reset();
+      this.registerForm.clearValidators();
+      this.router.navigate([`dashboard/${user._id}`]);
+    })
   }
 }

@@ -6,9 +6,7 @@ export default class CreateUserService {
         try {
             const savedUser = new User(user);
             await savedUser.save();
-            return {
-                user: savedUser,
-            };
+            return savedUser
         } catch (error) {
             throw error;
         }

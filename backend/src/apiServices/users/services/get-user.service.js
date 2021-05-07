@@ -8,9 +8,7 @@ export default class GetUserService {
                 _id
             });
 
-            return {
-                user: user,
-            };
+            return user;
         } catch (error) {
             throw error;
         }
