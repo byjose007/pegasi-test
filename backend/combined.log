@@ -1,0 +1,13 @@
+{"level":"error","service":"smoke-signal-service","time":"2021-05-07T19:21:15.893Z"}
+{"message":"Database connection successful","level":"info","service":"smoke-signal-service","time":"2021-05-07T19:21:35.168Z"}
+{"message":"Conectado a MongoDB","level":"info","service":"smoke-signal-service","time":"2021-05-07T19:22:59.237Z"}
+{"message":"El servidor ha sido inicializado: http://localhost:3000","level":"info","service":"smoke-signal-service","time":"2021-05-07T19:25:08.177Z"}
+{"message":"Conectado a MongoDB","level":"info","service":"smoke-signal-service","time":"2021-05-07T19:25:08.177Z"}
+{"message":"El servidor ha sido inicializado: http://localhost:3000","level":"info","service":"smoke-signal-service","time":"2021-05-07T19:35:10.060Z"}
+{"message":"Conectado a MongoDB","level":"info","service":"smoke-signal-service","time":"2021-05-07T19:35:10.060Z"}
+{"message":"El servidor ha sido inicializado: http://localhost:3000","level":"info","service":"smoke-signal-service","time":"2021-05-07T19:59:41.594Z"}
+{"message":"Conectado a MongoDB","level":"info","service":"smoke-signal-service","time":"2021-05-07T19:59:41.594Z"}
+{"message":"El servidor ha sido inicializado: http://localhost:3000","level":"info","service":"smoke-signal-service","time":"2021-05-07T20:03:23.762Z"}
+{"message":"Conectado a MongoDB","level":"info","service":"smoke-signal-service","time":"2021-05-07T20:03:23.762Z"}
+{"message":"El servidor ha sido inicializado: http://localhost:3000","level":"info","service":"smoke-signal-service","time":"2021-05-07T20:03:34.436Z"}
+{"message":"Conectado a MongoDB","level":"info","service":"smoke-signal-service","time":"2021-05-07T20:03:34.436Z"}

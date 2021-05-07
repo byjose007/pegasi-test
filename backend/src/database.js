@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
+import config from "./config/development";
+import logger from "./utils/logger";
 
-let uri = 'mongodb://localhost:27017/pegasi_db';
+
+
+let uri =  config.MONGO_URI;
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -13,7 +17,9 @@ mongoose
   .connect(uri, options)
   .then(() => {
     console.log("Conectado a MongoDB");
+    logger.info( "Conectado a MongoDB" );
   })
   .catch(err => {
     console.error(err);
+    logger.error( err );
   });
