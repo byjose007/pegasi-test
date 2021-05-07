@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,10 +8,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
+  limitAge = new Array(100);
+
+  maxDate: Date = new Date();
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.createForm();
+    this.valueChanges();
   }
 
   createForm() {
@@ -20,11 +24,18 @@ export class RegisterComponent implements OnInit {
       lastName: ['', Validators.required],
       age: ['', Validators.required],
       sex: ['', Validators.required],
-      pregnancyOrBreastfeeding: ['', Validators.required],
+      pregnancyOrBreastfeeding: [false, Validators.required],
       dateOfBirth: ['', Validators.required],
       telephone: ['', Validators.required],
     });
-    // this.registerForm.valueChanges.subscribe(console.log);
+  }
+
+  valueChanges(): void {
+    this.registerForm.controls['sex'].valueChanges.subscribe((value) => {
+      if (value === 'M') {
+        this.registerForm.patchValue({ pregnancyOrBreastfeeding: false });
+      }
+    });
   }
 
   submitForm() {
