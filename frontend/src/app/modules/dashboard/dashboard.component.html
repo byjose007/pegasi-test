@@ -1,1 +1,25 @@
-<p>dashboard works!</p>
+<app-header></app-header>
+<div class="container">
+  <div class="card" *ngIf="user">
+    <div class="card-header">
+      {{ user.name | uppercase }} {{ user.lastName | uppercase }}
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <span class="item-description">Edad:</span> {{ user.age }}
+      </li>
+      <li class="list-group-item">
+        <span class="item-description">Sexo:</span> {{ user.sex }}
+      </li>
+      <li class="list-group-item" *ngIf="user.pregnancyOrBreastfeeding">
+       <span class="item-description"> Embarazo/Lactancia</span>
+      </li>
+      <li class="list-group-item">
+        <span class="item-description"> Fecha de nacimiento :</span>
+       {{ user.dateOfBirth | date: "dd/MM/yyyy" }}
+      </li>
+      <li class="list-group-item">
+        <span class="item-description"> Telefono:</span> {{ user.telephone }}</li>
+    </ul>
+  </div>
+</div>
