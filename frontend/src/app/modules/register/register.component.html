@@ -1,1 +1,73 @@
-<p>register works!</p>
+<app-header></app-header>
+<div class="row">
+    <div class="form-container">
+
+        <form [formGroup]="registerForm" (ngSubmit)="submitForm()" novalidate>
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Nombres </mat-label>
+                <input matInput formControlName="name" required>
+                <mat-error *ngIf="registerForm.controls.name?.touched && registerForm.controls.name?.invalid">
+                    <span *ngIf="registerForm.controls.name.errors?.required">Este campo es obligatorio.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Apellidos</mat-label>
+                <input matInput formControlName="lastName" required>
+                <mat-error *ngIf="registerForm.controls.lastName?.touched && registerForm.controls.lastName?.invalid">
+                    <span *ngIf="registerForm.controls.lastName.errors?.required">Este campo es obligatorio.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Edad *</mat-label>
+                <mat-select formControlName="age" placeholder="edad" requided>
+                    <ng-container *ngFor="let item of limitAge; let i = index">
+                        <mat-option [value]="i+1">{{i+1}}</mat-option>
+                    </ng-container>
+                </mat-select>
+                <mat-error *ngIf="registerForm.controls.age?.touched && registerForm.controls.age?.invalid">
+                    <span *ngIf="registerForm.controls.age.errors?.required">Este campo es obligatorio.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-label> Sexo *</mat-label>
+            <mat-radio-group class="radio-group" formControlName="sex" requided>
+                <mat-radio-button class="radio-button" value="M">Masculino</mat-radio-button>
+                <mat-radio-button value="F">Femenino</mat-radio-button>
+            </mat-radio-group>
+
+            <div *ngIf="registerForm.value.sex === 'F'" class="slide-toggle">
+                <mat-slide-toggle formControlName="pregnancyOrBreastfeeding">Embarazo o lactancia</mat-slide-toggle>
+            </div>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Fecha de nacimiento *</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dateOfBirth">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error
+                    *ngIf="registerForm.controls.dateOfBirth?.touched && registerForm.controls.dateOfBirth?.invalid">
+                    <span *ngIf="registerForm.controls.dateOfBirth.errors?.required">Este campo es obligatorio.</span>
+                </mat-error>
+            </mat-form-field>
+
+
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Teléfono</mat-label>
+                <input matInput formControlName="telephone" required>
+                <mat-error *ngIf="registerForm.controls.telephone?.touched && registerForm.controls.telephone?.invalid">
+                    <span *ngIf="registerForm.controls.telephone.errors?.required">Este campo es obligatorio.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <section class="button-submit">
+                <button mat-raised-button color="primary" [disabled]="!registerForm.valid"
+                    type="submit">Registrarme</button>
+               
+            </section>
+        </form>
+    </div>
+</div>
+
+<app-footer></app-footer>

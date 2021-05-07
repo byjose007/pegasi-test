@@ -1,0 +1,40 @@
+.row {
+    position: relative;
+    width: 100%;
+    padding-top: 150px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+
+
+    .form-container {
+        width: 600px !important;
+        margin: 0px auto;
+    }
+}
+
+.form-field {
+    display: block;
+}
+
+
+.radio-group {
+    display: flex;
+
+    margin: 15px 0;
+  }
+  
+  .radio-button {
+    margin-right: 30px;
+  }
+
+  .slide-toggle{
+    padding-top: 8px;
+    padding-bottom: 25px;
+    font-size: 15px;
+  }
+
+  section.button-submit {
+    display: flex;
+    justify-content: center;
+}
